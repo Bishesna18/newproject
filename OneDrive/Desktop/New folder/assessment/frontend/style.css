@@ -1,0 +1,226 @@
+/* ===============================
+   Global Variables
+================================ */
+:root {
+    --btn: #dbdbdb;
+    --btn-hover: #cacaca;
+    --item-bg: #f0f0f0;
+    --modal-bg: rgba(0, 0, 0, 0.45);
+}
+
+/* ===============================
+   Base
+================================ */
+body {
+    font-family: system-ui, sans-serif;
+    padding: 0 12px;
+    background: #fafafa;
+}
+
+/* ===============================
+   Header
+================================ */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.header .buttongroup {
+    display: flex;
+    gap: 10px;
+}
+
+/* FORCE header edit button to be visible */
+.header .editEmployee {
+    display: inline-block !important;
+    position: static;
+    background-color: var(--btn);
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.header .buttongroup > button:hover {
+    background-color: var(--btn-hover);
+}
+
+/* ===============================
+   Layout
+================================ */
+.employees {
+    display: flex;
+    gap: 10px;
+}
+
+.employees > div {
+    border: 1px solid #d0d0d0;
+    height: 450px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 10px;
+}
+
+.employees__names {
+    width: 30%;
+}
+
+.employees__single {
+    width: 70%;
+}
+
+.employees__names,
+.employees__single {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===============================
+   Titles
+================================ */
+.employees__names--title,
+.employees__single--title {
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ===============================
+   Employee List
+================================ */
+.employees__names--list {
+    display: flex;
+    flex-direction: column;
+}
+
+.employees__names--item {
+    cursor: pointer;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background-color: var(--item-bg);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.employees__names--item:hover,
+.selected {
+    background-color: var(--btn);
+}
+
+/* ===============================
+   Single Employee View
+================================ */
+.employees__single--heading {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.employees__single--info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.employees__single--info > img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #eee;
+}
+
+/* ===============================
+   Add & Edit Modals (shared)
+================================ */
+.addEmployee,
+.editEmployee_div {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--modal-bg);
+    z-index: 9999;
+}
+
+/* modal visible state */
+.addEmployee.active,
+.editEmployee_div.active {
+    display: flex;
+}
+
+/* ===============================
+   Modal Card
+================================ */
+.addEmployee_create,
+.editEmployee_Edit {
+    width: 420px;
+    background-color: white;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ===============================
+   Modal Inputs
+================================ */
+.addEmployee_create > div,
+.editEmployee_Edit > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.addEmployee_create input,
+.editEmployee_Edit input {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* remove number arrows */
+.addEmployee_create input::-webkit-outer-spin-button,
+.addEmployee_create input::-webkit-inner-spin-button,
+.editEmployee_Edit input::-webkit-outer-spin-button,
+.editEmployee_Edit input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ===============================
+   Modal Buttons
+================================ */
+.addEmployee_create--submit,
+.editEmployee_edit--submit {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--btn);
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+.addEmployee_create--submit:hover,
+.editEmployee_edit--submit:hover {
+    background-color: var(--btn-hover);
+}
