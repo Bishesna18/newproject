@@ -11,7 +11,7 @@ env:
   FRONTEND_IMAGE: bishesna/some-content-nginx
 
 jobs:
-  build-and push:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
